@@ -7,6 +7,8 @@
 
 ;; Form-2 component
 (defn counting-button [txt]
+  ;;in the render function you deref the state
+  ;;will render every time the atom change
   (let [state (reagent/atom 0)]
     (fn [txt]
       [:button
@@ -15,6 +17,8 @@
        (str txt " -- " @state)])))
 
 ;; Form-3 component
+;;function return reagent create class
+;; will create a react class
 (defn canvas []
   (let [size (reagent/atom 10)
         id (js/setInterval
